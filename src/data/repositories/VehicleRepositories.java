@@ -19,6 +19,5 @@ public interface VehicleRepositories {
 
     long count();
     List<Vehicle> findByName(String name);
-    List<Vehicle> findByRank(String rank);
-
+    Vehicle findByChasisNumber(String chasisNumber);
 }

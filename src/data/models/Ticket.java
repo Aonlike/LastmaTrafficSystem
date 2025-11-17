@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class Ticket {
     int id;
+
     Vehicle vehicle;
     Offence offence;
     boolean hasPaid;
@@ -11,6 +12,13 @@ public class Ticket {
     LocalDateTime dateOfBooking;
     LocalDateTime dateOfPayment;
 
+
+    public Ticket(int id, Vehicle vehicle,boolean hasPaid) {
+        this.id = id;
+        this.vehicle = vehicle;
+        this.offence = offence;
+
+    }
     public int getId() {
         return id;
     }

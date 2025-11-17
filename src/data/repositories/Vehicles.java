@@ -3,43 +3,61 @@ package data.repositories;
 
 import data.models.Vehicle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Vehicles implements VehicleRepositories {
+    static List<Vehicle> vehicles = new ArrayList<>();
 
     @Override
     public Vehicle save(Vehicle vehicle) {
-        return null;
+        vehicles.add(vehicle);
+        return vehicle;
     }
 
     @Override
     public Vehicle findById(int id) {
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getId() == id) {
+                return vehicle;
+            }
+        }
         return null;
+
     }
 
     @Override
     public List<Vehicle> findAll() {
-        return List.of();
+        return vehicles;
     }
 
     @Override
     public void deleteById(int id) {
+        for(Vehicle vehicle : vehicles) {
+            if(vehicle.getId() == id ){
+                vehicles.remove(vehicle);
+                break;
+            }
+
+        }
 
     }
 
     @Override
     public void delete(Vehicle vehicle) {
+        vehicles.remove(vehicle);
 
     }
 
     @Override
     public void deleteAll() {
+        vehicles.clear();
 
     }
 
     @Override
     public long count() {
-        return 0;
+        return vehicles.size();
     }
 
     @Override
@@ -48,7 +66,11 @@ public class Vehicles implements VehicleRepositories {
     }
 
     @Override
-    public List<Vehicle> findByRank(String rank) {
-        return List.of();
+    public Vehicle findByChasisNumber(String chasisNumber) {
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getChasisNumber().equals(chasisNumber)) return vehicle;
+
+        }
+        return null;
     }
 }

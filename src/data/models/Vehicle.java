@@ -11,6 +11,28 @@ public class Vehicle {
     Year year;
     String plateNumber;
     Owner owner;
+    String chasisNumber;
+
+    public Vehicle(String name, String model, String plateNumber, String color, Year year, Owner owner, String chasisNumber) {
+        this.name = name;
+        this.model = model;
+        this.plateNumber = plateNumber;
+        this.color = color;
+        this.year = year;
+        this.owner = owner;
+        this.chasisNumber = chasisNumber;
+    }
+
+    public String getChasisNumber() {
+        return chasisNumber;
+    }
+
+    public void setChasisNumber(String chasisNumber) {
+        this.chasisNumber = chasisNumber;
+    }
+
+
+    int id;
     List<Ticket> tickets;
 
     public String getPlateNumber() {
@@ -69,5 +91,11 @@ public class Vehicle {
         this.name = name;
     }
 
+    public void setId(int id) {
+            this.id = id;
+    }
 
+    public int getId() {
+        return id;
+    }
 }
